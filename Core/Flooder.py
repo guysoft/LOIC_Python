@@ -17,7 +17,7 @@ class Flooder:
         self.threadsAmount = threads
         self.__processes = []
         self.wait = wait
-        self.speed = speed
+        #self.speed = speed
         self.subsite = subsite
         self.message = message
         self.random = random
