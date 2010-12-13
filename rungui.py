@@ -40,14 +40,14 @@ class framelogic(gui.MyFrame):
                     newport = port
                     newchannel = channel.replace("\\", "")
                     if newhost == host and newport == port and self.irc.connected:
-                        print "changing channel to", newchannel
+                        self.echo("changing channel to " +  newchannel)
                         self.irc.changeChannel(newchannel)
                         channel = newchannel
                     else:
                         host = newhost
                         port = newport
                         channel = newchannel
-                        print "changing host to", host, port, channel
+                        self.echo("changing host to "+ host + port + channel)
                         self.ircirc.disconnect()
                         self.ircirc.host = host
                         self.ircirc.port = port
@@ -67,8 +67,13 @@ class framelogic(gui.MyFrame):
             p = Process(target=backend, args=(None,host,port,channel))
             p.start();
             '''
-            
         return
+    
+    def echo(self,message):
+        '''
+        This lets you print to the gui info screen
+        '''
+        self.TextOut.SetValue(self.TextOut.GetValue() +"\n" + message );
 
 
 def backend(nothing,host,port,channel):
