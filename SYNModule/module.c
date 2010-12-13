@@ -82,7 +82,7 @@ static PyObject * synmod_createSocket(PyObject *self, PyObject* args)
     //Create a raw socket
     if((s = socket(AF_INET, SOCK_RAW, IPPROTO_RAW)) < 0)
     {
-        printf("socket creation failed\r\n",);
+        printf("socket creation failed\r\n");
         return PyInt_FromLong(-1L);
     }
     
