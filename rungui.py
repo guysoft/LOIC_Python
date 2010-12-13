@@ -2,15 +2,15 @@
 import wx
 import os
 import gui
-import main
+#import main
 from multiprocessing import Process, Queue
 
 from Core.Events import *
 from Core.IRC import * 
 from Core.Flooder import *
 
-import main
-from main import *
+
+#from main import *
 
 #Here you overload all the functons you want
 class framelogic(gui.MyFrame):
@@ -63,17 +63,20 @@ class framelogic(gui.MyFrame):
 
             
             self.running= True;
-
+            '''
             p = Process(target=backend, args=(None,host,port,channel))
             p.start();
+            '''
             
         return
+
 
 def backend(nothing,host,port,channel):
     #get process info
     parentProcess =os.getppid()
     processId=os.getpid();
-    main.main([nothing,host,port,channel])
+    #main.main([nothing,host,port,channel])
+    #do cool things here if we need
             
 
 app = wx.PySimpleApp()
