@@ -172,8 +172,6 @@ static PyObject * synmod_init(PyObject *self, PyObject* args)
     tcph->th_urp = 0;
     //Now the IP checksum
 
-    printf("Filled in the headers\r\n");
- 
     psh.source_address = inet_addr(src_addr);
     psh.dest_address = sin2.sin_addr.s_addr;
     psh.placeholder = 0;
