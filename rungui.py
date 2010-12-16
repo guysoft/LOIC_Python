@@ -10,7 +10,7 @@ from Core.IRC import *
 from Core.Flooder import *
 
 
-#from main import *
+from main import *
 
 #Here you overload all the functons you want
 class framelogic(gui.MyFrame):
@@ -34,10 +34,10 @@ class framelogic(gui.MyFrame):
             host = self.TextHive.GetValue();
             port = int(self.TextPort.GetValue())
             channel = self.TextChan.GetValue()
-            self.irc = IRC(host, port, channel)
+            self.irc = IRC(host, int(port), channel)
             if True:
                     newhost = host
-                    newport = port
+                    newport =int(port)
                     newchannel = channel.replace("\\", "")
                     if newhost == host and newport == port and self.irc.connected:
                         self.echo("changing channel to " +  newchannel)
@@ -47,7 +47,7 @@ class framelogic(gui.MyFrame):
                         host = newhost
                         port = newport
                         channel = newchannel
-                        self.echo("changing host to "+ host + port + channel)
+                        self.echo("changing host to "+ host + str(port) + channel)
                         self.ircirc.disconnect()
                         self.ircirc.host = host
                         self.ircirc.port = port
